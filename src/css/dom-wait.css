@@ -1,0 +1,15 @@
+.wait>* {
+  display: block;
+}
+
+.wait>.waiting {
+  display: none !important;
+}
+
+.wait.waiting>* {
+  display: none;
+}
+
+.wait.waiting>.waiting {
+  display: block !important;
+}

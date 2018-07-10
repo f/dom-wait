@@ -1,0 +1,24 @@
+{
+  "name": "dom-wait",
+  "version": "0.0.1",
+  "description": "Vanilla version of vue-wait",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f/dom-wait.git"
+  },
+  "keywords": [
+    "wait",
+    "loader",
+    "waiting"
+  ],
+  "author": "Fatih Kadir Akın <fatihkadirakin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f/dom-wait/issues"
+  },
+  "homepage": "https://github.com/f/dom-wait#readme"
+}
