@@ -9,12 +9,24 @@
   <link rel="stylesheet" href="src/css/dom-wait.css">
 </head>
 <body>
-  <div class="wait a" data-for="creating user">
-    <div class="waiting">Loading...</div>
+  <div data-wait-for="creating user">
+    <div class="waiting">CREATING USER...</div>
     <div>
       Loaded.
     </div>
     <div>asdasdad</div>
+  </div>
+  <hr>
+  <div data-wait-for="fetching user">
+    <div class="waiting">FETCHING USER...</div>
+    <div>
+      OLEYY.
+    </div>
+    <div>asdasdad</div>
+  </div>
+  <hr>
+  <div>
+    other content
   </div>
 </body>
 </html>
