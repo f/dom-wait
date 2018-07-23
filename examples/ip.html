@@ -13,7 +13,10 @@
     <div id='ip'>#.#.#.#</div>
   </div>
 
-  <button onclick="getIP();">Get IP</button>
+  <button onclick="getIP();" data-wait-for='getting ip'>
+    <div class='waiting'>I'm making request...</div>
+    Get IP
+  </button>
   <script src="ip.js"></script>
 </body>
 </html>

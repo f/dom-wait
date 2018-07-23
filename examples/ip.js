@@ -7,6 +7,8 @@ function getIP() {
     })
     .then(function (response) {
       $ip.innerHTML = '88.35.210.221';
-      wait.end('getting ip');
+      setTimeout(function () {
+        wait.end('getting ip');
+      }, 1000);
     });
 }
