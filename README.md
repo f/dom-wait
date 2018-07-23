@@ -8,7 +8,7 @@ Multiple Process Loader Management for vanilla JavaScript.
 
 **DOM-wait** helps to manage multiple loading states on the page without any conflict. It's based on a **very simple idea** that manages an array with multiple loading states.
 
-<img src="./dom-wait.gif?v1" width="600">
+<img src="./resources/dom-wait.gif?v1" width="600">
 
 # Quick Start
 
