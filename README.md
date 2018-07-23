@@ -6,9 +6,9 @@ Multiple Process Loader Management for vanilla JavaScript.
 
 > DOM wait is a vanilla implementation of [vue-wait](https://github.com/f/vue-wait).
 
----
-
 **DOM-wait** helps to manage multiple loading states on the page without any conflict. It's based on a **very simple idea** that manages an array with multiple loading states.
+
+<img src="./dom-wait.gif" width="600">
 
 # Quick Start
 

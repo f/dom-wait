@@ -1,11 +1,11 @@
 {
   "name": "dom-wait",
   "version": "0.0.1",
-  "description": "Vanilla version of vue-wait",
+  "description": "Multiple Process Loader Management for vanilla JavaScript.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "files": [
+    "dom-wait.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/f/dom-wait.git"
