@@ -6,27 +6,52 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DOM-Wait</title>
   <script src="src/js/dom-wait.js"></script>
-  <link rel="stylesheet" href="src/css/dom-wait.css">
 </head>
 <body>
-  <div data-wait-for="creating user">
-    <div class="waiting">CREATING USER...</div>
-    <div>
-      Loaded.
+  <main data-wait-for="loading app">
+    <button onclick="wait.start('loading app')">Start App Loading</button>
+    <div id="heyo">0</div>
+    <div class="waiting">LOADING APP... <button onclick="wait.end('loading app')">End Loading</button></div>
+    <div data-wait-for="creating user">
+      <div class="waiting">CREATING USER... <button onclick="wait.end('creating user')">End Loading</button></div>
+      <h1>
+        User Created!
+      </h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam aperiam magnam ea optio, iste voluptatibus nostrum quae. Reprehenderit at aut vel expedita. Consectetur nobis nisi nulla quasi ea, tenetur quaerat.</p>
+      <div data-wait-for="creating user subloader">
+        <div class="waiting">CREATING USER SUBLOADER... <button onclick="wait.end('creating user subloader')">End Sub Loading</button></div>
+        <h1>
+          User Created SUB!
+        </h1>
+        <button onclick="wait.start('creating user subloader')">Start Sub Loading</button>
+      </div>
+      <button onclick="wait.start('creating user')">Start Loading</button>
     </div>
-    <div>asdasdad</div>
-  </div>
-  <hr>
-  <div data-wait-for="fetching user">
-    <div class="waiting">FETCHING USER...</div>
-    <div>
-      OLEYY.
+    <hr>
+    <div data-wait-for="fetching users">
+      <div class="waiting">FETCHING USERS... <button onclick="wait.end('fetching users')">End Loading</button></div>
+      <h1>
+        Users fetched!
+      </h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim sed, aut fugit distinctio voluptatem delectus possimus laborum repudiandae culpa nisi ab, neque vero quo. Tempora, ipsam ab? Nisi, eaque unde!</p>
+      <button onclick="wait.start('fetching users')">Start Loading</button>
     </div>
-    <div>asdasdad</div>
-  </div>
-  <hr>
-  <div>
-    other content
-  </div>
+    <hr>
+    :)
+    <div>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi fuga facere aliquam dolorem nemo, dolor modi ipsum eveniet laudantium necessitatibus animi nam iste at tempora qui ea odit, dolorum in!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste temporibus, alias voluptatem quae magni perferendis excepturi, porro libero asperiores corporis beatae aut officia cum aliquam quibusdam sit sunt. Aliquid, cumque?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. A repellat dicta quis quasi, saepe cum commodi exercitationem quisquam vel atque reiciendis vero, facere ipsum fugiat enim aspernatur voluptates, reprehenderit iusto?
+    </div>
+  </main>
+  <script>
+    wait.ready(function () {
+      var id = document.getElementById('heyo');
+      setInterval(function () {
+        id.innerText = parseInt(id.innerText, 10) + 1;
+      }, 1000);
+      wait.start('loading app');
+    })
+  </script>
 </body>
 </html>

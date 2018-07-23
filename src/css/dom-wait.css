@@ -1,15 +1,3 @@
-/* .wait>* {
-  display: block;
-}
-
-.wait>.waiting {
-  display: none !important;
-}
-
-.wait.waiting>* {
+[data-wait-for] .waiting {
   display: none;
 }
-
-.wait.waiting>.waiting {
-  display: block !important;
-} */
