@@ -1,4 +1,10 @@
 (function (global) {
+  var detachedDOM = {};
+
+  function __generateId() {
+    return 'wait:' + (Math.random()*1e18).toString(16).substr(0, 8);
+  }
+
   function $ready(f, d, e) {
     d = document
     e = 'addEventListener'
@@ -23,10 +29,10 @@
       var nodes = this.childNodes;
       for (var i = 0; i < nodes.length; i++) {
         if (nodes[i].classList && nodes[i].classList.contains('waiting')) {
-          this.__waiterPlaceholder = document.createComment('WAITER: ' + this.getAttribute('data-wait-for'));
-          this.__waiterPlaceholder.__isWaiter = true;
-          this.__waiter = nodes[i];
-          this.replaceChild(this.__waiterPlaceholder, this.__waiter);
+          var nodeId = __generateId();
+          this.__waiter = document.createComment(nodeId);
+          detachedDOM[nodeId] = nodes[i];
+          this.replaceChild(this.__waiter, nodes[i]);
         }
       }
     });
@@ -36,20 +42,15 @@
     __waitFor(waiter, function () {
       var nodes = this.childNodes;
       for (var i = 0; i < this.childNodes.length; i++) {
-        if (nodes[i] === this.__waiterPlaceholder) continue;
-        var content;
-        if (nodes[i].nodeType === 1 /*ELEMENT_NODE*/) {
-          content = '<' + nodes[i].tagName + '... />';
-        } else {
-          content = nodes[i].textContent.trim();
-        }
+        if (nodes[i] === this.__waiter) continue;
+        var nodeId = __generateId();
 
-        this.__contentPlaceholder = document.createComment(content ? 'LOADING: ' + content.toLowerCase() : '');
-        this.__contentPlaceholder.__originalContent = nodes[i];
-        this.replaceChild(this.__contentPlaceholder, nodes[i]);
+        this.__content = document.createComment(nodeId);
+        detachedDOM[nodeId] = nodes[i];
+        this.replaceChild(this.__content, nodes[i]);
       }
-      if (this.__waiterPlaceholder) {
-        this.replaceChild(this.__waiter, this.__waiterPlaceholder);
+      if (this.__waiter) {
+        this.replaceChild(detachedDOM[this.__waiter.textContent], this.__waiter);
       }
     });
   }
@@ -58,8 +59,10 @@
     __waitFor(waiter, function () {
       var nodes = this.childNodes;
       for (var i = 0; i < this.childNodes.length; i++) {
-        if (!nodes[i].__originalContent) continue;
-        this.replaceChild(nodes[i].__originalContent, nodes[i]);
+        var content = detachedDOM[nodes[i].textContent];
+        if (!content) continue;
+        this.replaceChild(content, nodes[i]);
+        delete detachedDOM[nodes[i].textContent];
       }
     });
     $init(waiter);
