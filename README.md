@@ -10,6 +10,12 @@ Multiple Process Loader Management for vanilla JavaScript.
 
 <img src="./resources/dom-wait.gif?v1" width="600">
 
+# Key Features
+
+ - Zero-dependency. Requires nothing to work.
+ - No CSS. Attaches and detaches elements instead of showing and hiding them.
+ - Very simple API.
+
 # Quick Start
 
 Add `dom-wait.js` to `head`.
