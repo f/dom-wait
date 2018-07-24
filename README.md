@@ -1,4 +1,4 @@
-## DOM-wait
+## ↺ DOM-wait
 
 Multiple Process Loader Management for vanilla JavaScript.
 
@@ -10,13 +10,13 @@ Multiple Process Loader Management for vanilla JavaScript.
 
 <img src="./resources/dom-wait.gif?v1" width="600">
 
-# Key Features
+# 🗝 Key Features
 
  - Zero-dependency. Requires nothing to work.
  - No CSS. Attaches and detaches elements instead of showing and hiding them.
  - Very simple API.
 
-# Quick Start
+# 🚀 Quick Start
 
 Add `dom-wait.js` to `head`.
 
@@ -30,7 +30,7 @@ Add `dom-wait.js` to `head`.
 </html>
 ```
 
-# Usage
+# ✂️ Usage
 
 ## 1. Write your HTML
 
@@ -96,7 +96,7 @@ fetch('https://ipapi.co/json')
   });
 ```
 
-# Attach/Detach Based DOM Management
+# 🚦 Attach/Detach Based DOM Management
 
 **DOM-Wait** doesn't make **`hide/show`** on elements. Instead, attaches and detaches elements to DOM. This makes **DOM cleaner and lighter** on waiting process.
 
@@ -118,4 +118,4 @@ DOM-Wait detaches `.waiting` elements from DOM and inserts a comment node instea
 
 # License
 
-MIT.
+MIT &copy; [Fatih Kadir Akın](https://github.com/f)
